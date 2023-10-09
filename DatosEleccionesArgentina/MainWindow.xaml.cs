@@ -1,6 +1,7 @@
 ﻿using DatosEleccionesArgentina.controllers;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,14 +35,15 @@ namespace DatosEleccionesArgentina
             rutaExcel = "C:\\TrabajosIPF\\EleccionesArgentina\\datos.xlsx";
             partidoController = PartidoController.GetInstance();
 
-            textBoxes.Add(LLAText);
 
-            textBoxes.Add(LLAText);
-            textBoxes.Add(JCText);
-            textBoxes.Add(UPText);
-            textBoxes.Add(HNPText);
-            textBoxes.Add(FITUText);
+            textBoxes.Add(LLAText); //0
+            textBoxes.Add(JCText); //1 
+            textBoxes.Add(UPText); //2
+            textBoxes.Add(HNPText); //3
+            textBoxes.Add(FITUText); //4
 
+            PartidosList.ItemsSource = partidoController.GetPartidos();
+            
         }
 
 
@@ -67,11 +69,18 @@ namespace DatosEleccionesArgentina
         }
         private void savePartidos_Click(object sender, RoutedEventArgs e)
         {
-
+          
             if (CheckFormat())
             {
-                partidoController.UpdatePartido(1, double.Parse(LLAText.Text));
+                for(int i = 0; i<textBoxes.Count; i++)
+                {
+                    var a = textBoxes[i].Text;
+                    partidoController.UpdatePartido(i, double.Parse(textBoxes[i].Text, CultureInfo.InvariantCulture));
+
+                }
+
                 partidoController.SavePartidos();
+                PartidosList.Items.Refresh();
             }
                 
                 

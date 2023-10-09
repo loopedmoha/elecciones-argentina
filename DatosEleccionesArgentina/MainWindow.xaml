@@ -18,11 +18,14 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
+                        <RowDefinition Height="5*" />
+
                     </Grid.RowDefinitions>
 
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*" />
                         <ColumnDefinition Width="3*" />
+                        
                     </Grid.ColumnDefinitions>
 
                     <Label Content="Libertad Avanza" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -32,19 +35,25 @@
                     <Label Content="Frente de Izquierda y de Trabajadores - Unidad" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
 
                     <TextBox x:Name="LLAText" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" TextAlignment="Center"/>
-                    <TextBox x:Name="JCText" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" />
-                    <TextBox x:Name="UPText" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" />
-                    <TextBox x:Name="HNPText" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" />
-                    <TextBox x:Name="FITUText" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" />
+                    <TextBox x:Name="JCText" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120"  TextAlignment="Center" />
+                    <TextBox x:Name="UPText" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" TextAlignment="Center" />
+                    <TextBox x:Name="HNPText" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" TextAlignment="Center" />
+                    <TextBox x:Name="FITUText" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120" TextAlignment="Center" />
 
                     <Button x:Name="savePartidos" Content="Guardar Partidos" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="5" Grid.Column="1" Click="savePartidos_Click"/>
 
-                    <ListView Grid.Row="5">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="COSA"></TextBlock>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
+                    <ListView Grid.Row="6" x:Name="PartidosList" Grid.ColumnSpan="2" Margin="10">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}"/>
+                                <GridViewColumn Header="Partido" DisplayMemberBinding="{Binding Nombre}"/>
+                                <GridViewColumn Header="Siglas" DisplayMemberBinding="{Binding Siglas}"/>
+                                <GridViewColumn Header="Candidato" DisplayMemberBinding="{Binding Candidato}"/>
+                                <GridViewColumn Header="Voto" DisplayMemberBinding="{Binding Voto}"/>
+                            </GridView>
+
+
+                        </ListView.View>
                     </ListView>
                 </Grid>
             </TabItem>
@@ -100,7 +109,7 @@
                         <Label Content="Chubut" Grid.Row="0" Grid.Column="0"/>
                         <Label Content="Córdoba" Grid.Row="1" Grid.Column="0"/>
                         <Label Content="Corrientes" Grid.Row="2" Grid.Column="0"/>
-                        <ComboBox Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
+                        <ComboBox Margin="5"  Grid.Row="0" Grid.Column="1" ></ComboBox>
                         <ComboBox Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
                         <ComboBox Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
                     </Grid>
