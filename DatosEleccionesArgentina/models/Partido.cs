@@ -37,4 +37,6 @@ namespace DatosEleccionesArgentina.models
             return $"{Id};{Nombre};{Siglas};{Candidato};{Voto};{Color}\n";
         }
     }
+
+
 }

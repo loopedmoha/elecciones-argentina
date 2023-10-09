@@ -1,5 +1,7 @@
 ﻿using DatosEleccionesArgentina.models;
 using Microsoft.Win32;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -78,12 +80,16 @@ namespace DatosEleccionesArgentina.controllers
         public void SavePartidos()
         {
             var listaLineas = "";
+            partidos = partidos.OrderByDescending(x => x.Voto).ToList();
             foreach (var partido in partidos)
             {
                 listaLineas += partido.ToString();
             }
             Console.WriteLine(listaLineas);
             File.WriteAllText(rutaCsv, listaLineas);
+
+            //escribir excel
+            WriteExcel();
         }
 
         public void ShowPartidos()
@@ -97,6 +103,38 @@ namespace DatosEleccionesArgentina.controllers
         public List<Partido> GetPartidos()
         {
             return partidos;
+        }
+
+        public void WriteExcel()
+        {
+            IWorkbook workbook = new XSSFWorkbook();
+            ISheet sheet = workbook.CreateSheet("Partidos");
+
+            IRow headerRow = sheet.CreateRow(0);
+            headerRow.CreateCell(0).SetCellValue("Id");
+            headerRow.CreateCell(1).SetCellValue("Nombre");
+            headerRow.CreateCell(2).SetCellValue("Siglas");
+            headerRow.CreateCell(3).SetCellValue("Candidato");
+            headerRow.CreateCell(4).SetCellValue("Voto");
+            headerRow.CreateCell(5).SetCellValue("Color");
+
+            int rowIdx = 1;
+            foreach (var partido in partidos)
+            {
+                IRow row = sheet.CreateRow(rowIdx++);
+                row.CreateCell(0).SetCellValue(partido.Id);
+                row.CreateCell(1).SetCellValue(partido.Nombre);
+                row.CreateCell(2).SetCellValue(partido.Siglas);
+                row.CreateCell(3).SetCellValue(partido.Candidato);
+                row.CreateCell(4).SetCellValue(partido.Voto);
+                row.CreateCell(5).SetCellValue(partido.Color);
+            }
+
+            using (FileStream fs = new FileStream(rutaExcel, FileMode.Create, FileAccess.Write))
+            {
+                workbook.Write(fs);
+            }
+
         }
     }
 }

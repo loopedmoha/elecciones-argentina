@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DatosEleccionesArgentina"
         mc:Ignorable="d"
-        Title="Election Data" Height="550" Width="650">
+        MinHeight="600" MinWidth="675"
+        Title="Election Data" Height="600" Width="675">
 
     <Grid>
         <TabControl>
@@ -90,12 +91,12 @@
                         <Label Content="Buenos Aires" Grid.Row="0" Grid.Column="0"/>
                         <Label Content="Catamarca" Grid.Row="1" Grid.Column="0"/>
                         <Label Content="Chaco" Grid.Row="2" Grid.Column="0"/>
-                        <ComboBox Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name="comboBoxBuenosAires"  ItemsSource = "{Binding siglasPartidos}" Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name="comboBoxCatamarca" ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name="comboBoxChaco" ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
                     </Grid>
 
-                    <Grid Grid.Column="0" Grid.Row="1" Margin="10">
+                    <Grid  Grid.Column="0" Grid.Row="1" Margin="10">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
@@ -109,9 +110,9 @@
                         <Label Content="Chubut" Grid.Row="0" Grid.Column="0"/>
                         <Label Content="Córdoba" Grid.Row="1" Grid.Column="0"/>
                         <Label Content="Corrientes" Grid.Row="2" Grid.Column="0"/>
-                        <ComboBox Margin="5"  Grid.Row="0" Grid.Column="1" ></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxChubut" ItemsSource = "{Binding siglasPartidos}" Margin="5"  Grid.Row="0" Grid.Column="1" ></ComboBox>
+                        <ComboBox x:Name= "comboBoxCordoba" ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxCorrientes" ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
                     </Grid>
 
                     <Grid Grid.Column="0" Grid.Row="2" Margin="10">
@@ -128,9 +129,9 @@
                         <Label Content="Entre Ríos" Grid.Row="0" Grid.Column="0"/>
                         <Label Content="Formosa" Grid.Row="1" Grid.Column="0"/>
                         <Label Content="Jujuy" Grid.Row="2" Grid.Column="0"/>
-                        <ComboBox Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxEntreRios" ItemsSource = "{Binding siglasPartidos}" Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxFormosa" ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxJujuy" ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
                     </Grid>
 
                     <Grid Grid.Column="0" Grid.Row="3" Margin="10">
@@ -148,9 +149,9 @@
                         <Label Content="La Pampa" Grid.Row="0" Grid.Column="0"/>
                         <Label Content="La Rioja" Grid.Row="1" Grid.Column="0"/>
                         <Label Content="Mendoza" Grid.Row="2" Grid.Column="0"/>
-                        <ComboBox Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxLaPampa" ItemsSource = "{Binding siglasPartidos}" Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxLaRioja" ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxMendoza" ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
                     </Grid>
 
                     <Grid Grid.Column="1" Grid.Row="0" Margin="10">
@@ -167,9 +168,9 @@
                         <Label Content="Misiones" Grid.Row="0" Grid.Column="0"/>
                         <Label Content="Neuquén" Grid.Row="1" Grid.Column="0"/>
                         <Label Content="Río Negro" Grid.Row="2" Grid.Column="0"/>
-                        <ComboBox Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxMisiones" ItemsSource = "{Binding siglasPartidos}" Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxNeuquen" ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxRioNegro" ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
                     </Grid>
 
                     <Grid Grid.Column="1" Grid.Row="1" Margin="10">
@@ -186,9 +187,9 @@
                         <Label Content="Salta" Grid.Row="0" Grid.Column="0"/>
                         <Label Content="San Juan" Grid.Row="1" Grid.Column="0"/>
                         <Label Content="San Luis" Grid.Row="2" Grid.Column="0"/>
-                        <ComboBox Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxSalta" ItemsSource = "{Binding siglasPartidos}"  Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxSanJuan" ItemsSource = "{Binding siglasPartidos}"  Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxSanLuis" ItemsSource = "{Binding siglasPartidos}"  Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
                     </Grid>
 
                     <Grid Grid.Column="1" Grid.Row="2" Margin="10">
@@ -205,9 +206,9 @@
                         <Label Content="Santa Cruz" Grid.Row="0" Grid.Column="0"/>
                         <Label Content="Santa Fe" Grid.Row="1" Grid.Column="0"/>
                         <Label Content="Santiago del Estero" Grid.Row="2" Grid.Column="0"/>
-                        <ComboBox Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxSantaCruz"  ItemsSource = "{Binding siglasPartidos}" Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxSantafe"  ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxSantiagoEstero"  ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
                     </Grid>
 
                     <Grid Grid.Column="1" Grid.Row="3" Margin="10">
@@ -224,12 +225,12 @@
                         <Label Content="Tierra del Fuego" Grid.Row="0" Grid.Column="0"/>
                         <Label Content="Tucumán" Grid.Row="1" Grid.Column="0"/>
                         <Label Content="Buenos Aires (CA)" Grid.Row="2" Grid.Column="0"/>
-                        <ComboBox Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
-                        <ComboBox Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxTierraFuego"  ItemsSource = "{Binding siglasPartidos}" Margin="5"  Grid.Row="0" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxTucuman" ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="1" Grid.Column="1"></ComboBox>
+                        <ComboBox x:Name= "comboBoxBuenosAiresCA" ItemsSource = "{Binding siglasPartidos}" Margin="5" Grid.Row="2" Grid.Column="1"></ComboBox>
                     </Grid>
 
-                    <Button x:Name="saveButton" Content="Guardar ganadores" Grid.Column="1" Grid.Row="6"/>
+                    <Button x:Name="saveButton" Content="Guardar ganadores" Click="saveButton_Click" Grid.Column="1" Grid.Row="6"/>
 
 
 

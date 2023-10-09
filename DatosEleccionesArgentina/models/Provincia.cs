@@ -23,7 +23,7 @@ namespace DatosEleccionesArgentina.models
 
         public override string ToString()
         {
-            return $"{Id};{Nombre};{Ganador}";
+            return $"{Id};{Nombre};{Ganador}\n";
         }
     }
 }
