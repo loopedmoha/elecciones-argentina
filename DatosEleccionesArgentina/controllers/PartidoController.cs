@@ -16,7 +16,7 @@ namespace DatosEleccionesArgentina.controllers
     {
         private static PartidoController instance;
 
-        public List<Partido> partidos;
+        public List<Partido> partidos{ get; set; }
         public string rutaCsv;
         public string rutaExcel;
 
@@ -24,7 +24,7 @@ namespace DatosEleccionesArgentina.controllers
         ////////////////////////////////////////////////
         ///    //ID;Partido;Siglas;Candidato;%Voto;Color
 
-        public PartidoController() {
+        private PartidoController() {
 
             rutaCsv = "C:\\TrabajosIPF\\EleccionesArgentina\\partidos.csv";
             rutaExcel = "C:\\TrabajosIPF\\EleccionesArgentina\\partidos.xlsx";
@@ -58,8 +58,8 @@ namespace DatosEleccionesArgentina.controllers
                     foreach (var line in lines)
                     {
                         var fields = line.Split(";");
-                        var n = double.Parse(fields[4]);
-                        var partido = new Partido(int.Parse(fields[0]), fields[1], fields[2], fields[3], double.Parse(fields[4]), fields[5]);
+                        //var n = double.Parse(fields[4]);
+                        var partido = new Partido(int.Parse(fields[0]), fields[1], fields[2], fields[3], double.Parse(fields[4]));
                         partidos.Add(partido);
                     }
                     retry = false;
@@ -89,7 +89,7 @@ namespace DatosEleccionesArgentina.controllers
             File.WriteAllText(rutaCsv, listaLineas);
 
             //escribir excel
-            WriteExcel();
+            //WriteExcel();
         }
 
         public void ShowPartidos()
@@ -105,7 +105,7 @@ namespace DatosEleccionesArgentina.controllers
             return partidos;
         }
 
-        public void WriteExcel()
+        private void WriteExcel()
         {
             IWorkbook workbook = new XSSFWorkbook();
             ISheet sheet = workbook.CreateSheet("Partidos");
@@ -123,8 +123,8 @@ namespace DatosEleccionesArgentina.controllers
             {
                 IRow row = sheet.CreateRow(rowIdx++);
                 row.CreateCell(0).SetCellValue(partido.Id);
-                row.CreateCell(1).SetCellValue(partido.Nombre);
-                row.CreateCell(2).SetCellValue(partido.Siglas);
+              //  row.CreateCell(1).SetCellValue(partido.Nombre);
+               // row.CreateCell(2).SetCellValue(partido.Siglas);
                 row.CreateCell(3).SetCellValue(partido.Candidato);
                 row.CreateCell(4).SetCellValue(partido.Voto);
                 row.CreateCell(5).SetCellValue(partido.Color);

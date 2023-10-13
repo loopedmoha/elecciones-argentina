@@ -60,7 +60,7 @@
             </TabItem>
 
             <!-- GANADORES DE PROVINCIAS -->
-            <TabItem Header="Gandores de provincias">
+            <!-- <TabItem Header="Gandores de provincias">
                 <Grid Margin="10">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -235,7 +235,7 @@
 
 
                 </Grid>
-            </TabItem>
+            </TabItem> -->
         </TabControl>
     </Grid>
 </Window>
