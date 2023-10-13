@@ -29,13 +29,21 @@ namespace DatosEleccionesArgentina.controllers
 
         public void SaveDatosComunes() {
             //Add escrutado desde parte grafica
-            string text = obtenerDiferencia().ToString();
+            string text = NormalizarDecimales(ObtenerDiferencia());
             File.WriteAllText(rutaCsv, text);
         }
 
-        private double obtenerDiferencia() {
+        private double ObtenerDiferencia() {
             var partidos = PartidoController.GetInstance().GetPartidos();
             return partidos.Select(p=> p.Voto - partidos[1].Voto).FirstOrDefault();
+        }
+        private string NormalizarDecimales(double num) { 
+            string text = num.ToString();
+            if (text.Split(".")[1].Length > 1)
+            {
+                text = text.Split(".")[0] + text.Split(".")[1][0];
+            }
+            return text;
         }
     }
 }

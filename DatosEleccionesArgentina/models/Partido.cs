@@ -31,7 +31,11 @@ namespace DatosEleccionesArgentina.models
 
         public override string ToString()
         {
-            return $"{Id};{Candidato};{Apellido};{Color};{Voto}\n";
+            string voto = Voto.ToString();
+            if (voto.Split(".")[1].Length > 1) {
+                voto = voto.Split(".")[0] + voto.Split(".")[1][0];
+            }
+            return $"{Id};{Candidato};{Apellido};{Color};{voto}\n";
         }
     }
 
